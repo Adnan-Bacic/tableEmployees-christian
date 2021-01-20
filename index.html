@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Vue Staff Directory - Jump Start Vue.js</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+	<style>
+		h1.ui.center.header {
+			margin-top: 3em;
+		}
+	</style>
+</head>
+
+<body>
+	<main id="main">
+		<h1 class="ui center aligned header">{{ heading }}</h1>
+		<div class="ui container">
+			<table class="ui celled table">
+				<thead>
+					<tr>
+						<th>Avatar</th>
+						<th @click="sortBy = 'firstName'">First Name</th>
+						<th @click="sortBy = 'lastName'">Last Name</th>
+						<th @click="sortBy = 'email'">Email</th>
+						<th @click="sortBy = 'phone'">Phone</th>
+						<th @click="sortBy = 'department'">Department</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(employee, index) in sortedEmployees" :key="index">
+						<td>
+							<img :src="employee.photoUrl" class="ui mini rounded image" />
+						</td>
+						<td>{{ employee.firstName }}</td>
+						<td>{{ employee.lastName }}</td>
+						<td>{{ employee.email }}</td>
+						<td>{{ employee.phone }}</td>
+						<td>{{ employee.department }}</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="6"></th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>
